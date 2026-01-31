@@ -20,7 +20,7 @@ public class AttendanceService {
     @Autowired
     private EmployeeRepository employeeRepository;
 
-    // ✅ Mark attendance (Check-in)
+    // Mark attendance (Check-in)
     public Attendance markAttendance(Long employeeId) {
         Employee employee = employeeRepository.findById(employeeId)
                 .orElseThrow(() -> new RuntimeException("Employee not found"));
@@ -34,7 +34,7 @@ public class AttendanceService {
         return attendanceRepository.save(attendance);
     }
 
-    // ✅ Mark checkout (update existing attendance)
+    // Mark checkout (update existing attendance)
     public Attendance markCheckout(Long attendanceId) {
         Attendance attendance = attendanceRepository.findById(attendanceId)
                 .orElseThrow(() -> new RuntimeException("Attendance not found"));
@@ -46,12 +46,12 @@ public class AttendanceService {
         return attendanceRepository.save(attendance);
     }
 
-    // ✅ Get all attendance records for an employee
+    // Get all attendance records for an employee
     public List<Attendance> getAttendanceByEmployee(Long employeeId) {
         return attendanceRepository.findByEmployeeId(employeeId);
     }
 
-    // ✅ Get all attendance records for employees under a manager
+    // Get all attendance records for employees under a manager
     public List<Attendance> getAttendanceByManager(Long managerId) {
         return attendanceRepository.findAll()
                 .stream()

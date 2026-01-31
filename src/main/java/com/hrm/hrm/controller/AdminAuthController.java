@@ -11,7 +11,8 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/auth")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "http://localhost:3000")
+
 public class AdminAuthController {
 
     @Autowired
@@ -21,7 +22,7 @@ public class AdminAuthController {
     private PasswordEncoder passwordEncoder;
 
     @Autowired
-    private JwtUtil jwtUtil;   // ✅ inject JwtUtil
+    private JwtUtil jwtUtil;
 
     @PostMapping("/register")
     public Map<String, String> register(@RequestBody Admin admin) {

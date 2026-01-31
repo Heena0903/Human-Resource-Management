@@ -11,7 +11,7 @@ import java.util.Date;
 @Component
 public class JwtUtil {
 
-    // 🔐 MUST be at least 32 characters
+    // MUST be at least 32 characters
     private static final String SECRET_KEY = "this_is_a_very_strong_secret_key_12345";
 
     private static final long EXPIRATION_TIME = 3600000; // 1 hour

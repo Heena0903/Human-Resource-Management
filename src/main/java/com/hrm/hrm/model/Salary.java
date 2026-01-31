@@ -1,5 +1,6 @@
 package com.hrm.hrm.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDate;
@@ -15,11 +16,12 @@ public class Salary {
     private Long id;
 
     private Double amount;
-    private String month;       // "2025-12" or "Dec-2025"
-    private LocalDate date;     // date when salary record created
+    private String month;
+    private LocalDate date;
 
     @ManyToOne
     @JoinColumn(name = "employee_id")
+    @JsonIgnore
     private Employee employee;
 }
 

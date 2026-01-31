@@ -12,4 +12,3 @@ public class ManagerDTO {
     private Long departmentId;
     private String departmentName;
 }
-

@@ -23,13 +23,14 @@ public class JwtFilter implements Filter {
 
         String path = req.getRequestURI();
 
-        // ✅ Skip JWT validation for auth endpoints (login & register)
-        if (path.startsWith("/api/auth")) {
+        // Skip JWT validation for:
+        // - Admin auth (register/login)
+        // - Manager & Employee login (/api/login/**)
+        if (path.startsWith("/api/auth") || path.startsWith("/api/login")) {
             chain.doFilter(request, response);
             return;
         }
 
-        // (Optional) Also skip for OPTIONS preflight requests
         if ("OPTIONS".equalsIgnoreCase(req.getMethod())) {
             chain.doFilter(request, response);
             return;
@@ -53,4 +54,3 @@ public class JwtFilter implements Filter {
         chain.doFilter(request, response);
     }
 }
-

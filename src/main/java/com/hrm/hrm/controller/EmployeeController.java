@@ -1,6 +1,7 @@
 package com.hrm.hrm.controller;
 
 import com.hrm.hrm.dto.SalaryDTO;
+import com.hrm.hrm.dto.EmployeeDTO;
 import com.hrm.hrm.model.Employee;
 import com.hrm.hrm.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/employee")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "http://localhost:3000")
+
 public class EmployeeController {
 
     @Autowired
@@ -24,15 +26,15 @@ public class EmployeeController {
 
     // Get all employees
     @GetMapping
-    public List<Employee> getAllEmployees() {
+    public List<EmployeeDTO> getAllEmployees() {
         return employeeService.getAllEmployees();
     }
 
-    // Get employee by ID
     @GetMapping("/{id}")
-    public Employee getEmployeeById(@PathVariable Long id) {
+    public EmployeeDTO getEmployeeById(@PathVariable Long id) {
         return employeeService.getEmployeeById(id);
     }
+
 
     // Update employee details
     @PutMapping("/{id}")

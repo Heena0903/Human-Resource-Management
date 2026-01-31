@@ -18,6 +18,8 @@ public class Employee {
     private String email;
     private String designation;
 
+    private String password;
+
     @ManyToOne
     @JoinColumn(name = "manager_id")
     private Manager manager;
@@ -28,3 +30,4 @@ public class Employee {
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
     private List<Attendance> attendances;
 }
+
